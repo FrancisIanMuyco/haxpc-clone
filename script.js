@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
         btn.addEventListener('click', function(e) {
             e.preventDefault();
             const softwareName = this.closest('.software-card, .software-list-item').querySelector('h3, h4').textContent;
-            alert('Download started for: ' + softwareName + '\n\n(This is a demo website)');
+            alert('Download started for: ' + softwareName + '\n\n(Ito ay demo website)');
         });
     });
 
