@@ -13,7 +13,7 @@ export default function Guides() {
         </div>
         <div class="guides-list">
           ${guides.map(guide => `
-            <a href="/guides/${guide.id}" data-link class="guide-card-horizontal">
+            <a href="#/guides/${guide.id}" class="guide-card-horizontal">
               <div class="guide-content">
                 <span class="guide-category">${guide.category}</span>
                 <h3>${guide.title}</h3>
@@ -23,7 +23,7 @@ export default function Guides() {
                   <span>${guide.readTime} read</span>
                 </div>
               </div>
-              <span class="btn-arrow">→</span>
+              <span class="btn-arrow">&rarr;</span>
             </a>
           `).join('')}
         </div>

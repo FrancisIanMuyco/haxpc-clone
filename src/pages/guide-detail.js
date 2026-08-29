@@ -1,11 +1,11 @@
 import Header from '../components/Header.js';
 import Footer from '../components/Footer.js';
 import { guides } from '../data/software.js';
-import { getAppPath } from '../config.js';
 
 export default function GuideDetail() {
-  const appPath = getAppPath();
-  const id = appPath.split('/')[2];
+  const hash = window.location.hash;
+  const parts = hash.replace('#/', '').split('/');
+  const id = parts[1] || '';
   const guide = guides.find(g => g.id === id);
 
   if (!guide) {
@@ -17,9 +17,9 @@ export default function GuideDetail() {
     <main class="page-guide-detail">
       <div class="container">
         <nav class="breadcrumbs">
-          <a href="/" data-link>Home</a>
+          <a href="#/">Home</a>
           <span>/</span>
-          <a href="/guides" data-link>Guides</a>
+          <a href="#/guides">Guides</a>
           <span>/</span>
           <span>${guide.title}</span>
         </nav>

@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
-    "build": "vite build && sed -i 's|src=\"/|src=\"|g' dist/index.html && sed -i 's|href=\"/|href=\"|g' dist/index.html",
+    "build": "vite build",
     "preview": "vite preview --host 0.0.0.0"
   },
   "devDependencies": {

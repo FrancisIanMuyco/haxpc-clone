@@ -1,19 +1,17 @@
-import { categories } from '../data/software.js';
-
 export default function Header() {
   return `
     <header class="header">
       <div class="container header-inner">
-        <a href="/" data-link class="logo">
+        <a href="#/" class="logo">
           <span class="logo-icon">⚡</span>
           <span class="logo-text">PinoyPC</span>
         </a>
         <nav class="nav-desktop">
-          <a href="/" data-link>Home</a>
-          <a href="/software" data-link>Software</a>
-          <a href="/guides" data-link>Guides</a>
-          <a href="/about" data-link>About</a>
-          <a href="/contact" data-link>Contact</a>
+          <a href="#/" >Home</a>
+          <a href="#/software">Software</a>
+          <a href="#/guides">Guides</a>
+          <a href="#/about">About</a>
+          <a href="#/contact">Contact</a>
         </nav>
         <div class="header-actions">
           <button class="search-toggle" id="searchToggle" aria-label="Search">
@@ -47,11 +45,11 @@ export default function Header() {
         </div>
       </div>
       <nav class="nav-mobile" id="mobileNav">
-        <a href="/" data-link>Home</a>
-        <a href="/software" data-link>Software</a>
-        <a href="/guides" data-link>Guides</a>
-        <a href="/about" data-link>About</a>
-        <a href="/contact" data-link>Contact</a>
+        <a href="#/">Home</a>
+        <a href="#/software">Software</a>
+        <a href="#/guides">Guides</a>
+        <a href="#/about">About</a>
+        <a href="#/contact">Contact</a>
       </nav>
     </header>
   `;

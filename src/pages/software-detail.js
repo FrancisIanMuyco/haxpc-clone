@@ -1,11 +1,12 @@
 import Header from '../components/Header.js';
 import Footer from '../components/Footer.js';
 import { software } from '../data/software.js';
-import { getAppPath } from '../config.js';
 
 export default function SoftwareDetail() {
-  const appPath = getAppPath();
-  const id = appPath.split('/')[2];
+  const hash = window.location.hash;
+  // Hash is like #/software/obs-studio — extract the ID
+  const parts = hash.replace('#/', '').split('/');
+  const id = parts[1] || '';
   const app = software.find(s => s.id === id);
 
   if (!app) {
@@ -17,9 +18,9 @@ export default function SoftwareDetail() {
     <main class="page-detail">
       <div class="container">
         <nav class="breadcrumbs">
-          <a href="/" data-link>Home</a>
+          <a href="#/">Home</a>
           <span>/</span>
-          <a href="/software" data-link>Software</a>
+          <a href="#/software">Software</a>
           <span>/</span>
           <span>${app.name}</span>
         </nav>
@@ -70,7 +71,7 @@ export default function SoftwareDetail() {
             <h2>Related Software</h2>
             <div class="related-grid">
               ${software.filter(s => s.id !== app.id).slice(0, 3).map(r => `
-                <a href="/software/${r.id}" data-link class="related-card">
+                <a href="#/software/${r.id}" class="related-card">
                   <span class="related-icon">${r.icon}</span>
                   <strong>${r.name}</strong>
                   <p>${r.category}</p>

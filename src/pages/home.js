@@ -1,8 +1,6 @@
 import Header from '../components/Header.js';
 import Footer from '../components/Footer.js';
-import { software } from '../data/software.js';
-import { categories } from '../data/software.js';
-import { guides } from '../data/software.js';
+import { software, categories, guides } from '../data/software.js';
 
 export default function Home() {
   const featured = software.slice(0, 3);
@@ -16,7 +14,7 @@ export default function Home() {
           <h1>Everything Your PC Needs, In One Place.</h1>
           <p>Discover useful software, PC tools, Windows apps, games, and practical guides.</p>
           <div class="hero-actions">
-            <a href="/software" data-link class="btn-primary">Browse Software</a>
+            <a href="#/software" class="btn-primary">Browse Software</a>
           </div>
           <div class="hero-search">
             <div class="search-box-large">
@@ -35,7 +33,7 @@ export default function Home() {
           <h2>Quick Categories</h2>
           <div class="category-grid">
             ${categories.map(cat => `
-              <a href="/software?category=${cat.id}" data-link class="category-card">
+              <a href="#/software?category=${cat.id}" class="category-card">
                 <span class="category-icon">${cat.icon}</span>
                 <h3>${cat.name}</h3>
                 <p>${cat.count} apps</p>
@@ -50,7 +48,7 @@ export default function Home() {
           <h2>Featured Software</h2>
           <div class="software-grid">
             ${featured.map(app => `
-              <a href="/software/${app.id}" data-link class="software-card">
+              <a href="#/software/${app.id}" class="software-card">
                 <div class="software-icon">${app.icon}</div>
                 <div class="software-info">
                   <h3>${app.name}</h3>
@@ -63,7 +61,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div class="software-action">
-                  <span class="btn-arrow">→</span>
+                  <span class="btn-arrow">&rarr;</span>
                 </div>
               </a>
             `).join('')}
@@ -76,7 +74,7 @@ export default function Home() {
           <h2>Latest Updates</h2>
           <div class="software-list">
             ${latest.map(app => `
-              <a href="/software/${app.id}" data-link class="software-list-item">
+              <a href="#/software/${app.id}" class="software-list-item">
                 <span class="software-list-icon">${app.icon}</span>
                 <div class="software-list-info">
                   <h4>${app.name}</h4>
@@ -84,12 +82,12 @@ export default function Home() {
                 </div>
                 <span class="software-list-size">${app.size}</span>
                 <span class="software-list-date">${app.updated}</span>
-                <span class="btn-arrow">→</span>
+                <span class="btn-arrow">&rarr;</span>
               </a>
             `).join('')}
           </div>
           <div class="section-footer">
-            <a href="/software" data-link class="btn-secondary">View All Software</a>
+            <a href="#/software" class="btn-secondary">View All Software</a>
           </div>
         </div>
       </section>
@@ -99,7 +97,7 @@ export default function Home() {
           <h2>Latest Guides</h2>
           <div class="guides-grid">
             ${guides.map(guide => `
-              <a href="/guides/${guide.id}" data-link class="guide-card">
+              <a href="#/guides/${guide.id}" class="guide-card">
                 <div class="guide-meta">
                   <span class="guide-category">${guide.category}</span>
                   <span class="guide-date">${guide.date}</span>
@@ -111,7 +109,7 @@ export default function Home() {
             `).join('')}
           </div>
           <div class="section-footer">
-            <a href="/guides" data-link class="btn-secondary">All Guides</a>
+            <a href="#/guides" class="btn-secondary">All Guides</a>
           </div>
         </div>
       </section>

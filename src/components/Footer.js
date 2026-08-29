@@ -4,7 +4,7 @@ export default function Footer() {
       <div class="container">
         <div class="footer-grid">
           <div class="footer-brand">
-            <a href="/" data-link class="logo">
+            <a href="#/" class="logo">
               <span class="logo-icon">⚡</span>
               <span class="logo-text">PinoyPC</span>
             </a>
@@ -12,28 +12,28 @@ export default function Footer() {
           </div>
           <div class="footer-links">
             <h4>Explore</h4>
-            <a href="/software" data-link>Software</a>
-            <a href="/guides" data-link>Guides</a>
-            <a href="/about" data-link>About</a>
-            <a href="/contact" data-link>Contact</a>
+            <a href="#/software">Software</a>
+            <a href="#/guides">Guides</a>
+            <a href="#/about">About</a>
+            <a href="#/contact">Contact</a>
           </div>
           <div class="footer-links">
             <h4>Categories</h4>
-            <a href="/software" data-link>Windows</a>
-            <a href="/software" data-link>Utilities</a>
-            <a href="/software" data-link>Graphics & Design</a>
-            <a href="/software" data-link>Multimedia</a>
+            <a href="#/software">Windows</a>
+            <a href="#/software">Utilities</a>
+            <a href="#/software">Graphics & Design</a>
+            <a href="#/software">Multimedia</a>
           </div>
           <div class="footer-links">
             <h4>Company</h4>
-            <a href="/about" data-link>About</a>
-            <a href="/contact" data-link>Contact</a>
-            <a href="/about" data-link>Privacy Policy</a>
-            <a href="/about" data-link>Terms</a>
+            <a href="#/about">About</a>
+            <a href="#/contact">Contact</a>
+            <a href="#/about">Privacy Policy</a>
+            <a href="#/about">Terms</a>
           </div>
         </div>
         <div class="footer-bottom">
-          <p>© 2026 PinoyPC. All rights reserved. | Pundar noong 2019</p>
+          <p>&copy; 2026 PinoyPC. All rights reserved. | Pundar noong 2019</p>
         </div>
       </div>
     </footer>

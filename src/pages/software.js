@@ -3,8 +3,10 @@ import Footer from '../components/Footer.js';
 import { software } from '../data/software.js';
 
 export default function Software() {
-  const url = new URL(window.location.href);
-  const categoryFilter = url.searchParams.get('category') || '';
+  const hash = window.location.hash;
+  const hashParams = hash.split('?')[1] || '';
+  const urlParams = new URLSearchParams(hashParams);
+  const categoryFilter = urlParams.get('category') || '';
 
   const filtered = categoryFilter
     ? software.filter(s => s.category.toLowerCase().includes(categoryFilter.toLowerCase()) || s.id === categoryFilter)
@@ -63,7 +65,7 @@ export default function Software() {
               <p>No software found matching your filters.</p>
             </div>
           ` : filtered.map(app => `
-            <a href="/software/${app.id}" data-link class="table-row">
+            <a href="#/software/${app.id}" class="table-row">
               <div class="table-software">
                 <span class="table-icon">${app.icon}</span>
                 <div>
@@ -75,7 +77,7 @@ export default function Software() {
               <span class="table-platform">${app.platform}</span>
               <span class="table-size">${app.size}</span>
               <span class="table-date">${app.updated}</span>
-              <span class="table-arrow">→</span>
+              <span class="table-arrow">&rarr;</span>
             </a>
           `).join('')}
         </div>
