@@ -1,4 +1,5 @@
 import './style.css';
+import { BASE } from './config.js';
 
 const routes = {
   home: () => import('./pages/home.js'),
@@ -12,33 +13,65 @@ const routes = {
 
 const app = document.getElementById('app');
 
-function navigate(path) {
-  window.history.pushState({}, '', path);
-  render(path);
+// Get the app-relative path (stripped of base path)
+function getAppPath() {
+  const params = new URLSearchParams(window.location.search);
+  const redirectPath = params.get('path');
+  if (redirectPath) {
+    // Coming from 404 redirect — use the original path
+    return redirectPath;
+  }
+  // Normal navigation — strip the base path
+  const pathname = window.location.pathname;
+  if (pathname.startsWith(BASE)) {
+    return pathname.substring(BASE.length - 1); // Keep the leading /
+  }
+  return pathname;
 }
 
-function render(path) {
-  const url = new URL(path, window.location.origin);
-  const pathname = url.pathname;
+// Get the full path with base prepended for navigation
+function fullPath(appPath) {
+  // appPath is like '/software' or '/software/some-id'
+  // BASE is like '/' or '/haxpc-clone/'
+  if (BASE === '/') return appPath;
+  // Remove leading / from appPath to avoid double slashes
+  return BASE + appPath.replace(/^\//, '');
+}
+
+function navigate(path) {
+  const url = fullPath(path);
+  window.history.pushState({}, '', url);
+  render();
+}
+
+function render() {
+  const appPath = getAppPath();
 
   let pageModule;
 
-  if (pathname === '/' || pathname === '/index.html') {
+  if (appPath === '/' || appPath === '/index.html' || appPath === '') {
     pageModule = routes.home;
-  } else if (pathname === '/software' || pathname === '/software/') {
+  } else if (appPath === '/software' || appPath === '/software/') {
     pageModule = routes.software;
-  } else if (pathname.startsWith('/software/')) {
+  } else if (appPath.startsWith('/software/')) {
     pageModule = routes['software-detail'];
-  } else if (pathname === '/guides' || pathname === '/guides/') {
+  } else if (appPath === '/guides' || appPath === '/guides/') {
     pageModule = routes.guides;
-  } else if (pathname.startsWith('/guides/')) {
+  } else if (appPath.startsWith('/guides/')) {
     pageModule = routes['guide-detail'];
-  } else if (pathname === '/about') {
+  } else if (appPath === '/about') {
     pageModule = routes.about;
-  } else if (pathname === '/contact') {
+  } else if (appPath === '/contact') {
     pageModule = routes.contact;
   } else {
     pageModule = routes.home;
+  }
+
+  // If we came from a 404 redirect, clean up the URL
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('path')) {
+    const cleanUrl = fullPath(appPath);
+    window.history.replaceState({}, '', cleanUrl);
   }
 
   pageModule().then((mod) => {
@@ -91,22 +124,19 @@ function initInteractions() {
       }
       import('./data/software.js').then(({ software, guides }) => {
         const swResults = software.filter(s =>
-          s.name.toLowerCase().includes(term) ||
-          s.category.toLowerCase().includes(term) ||
-          s.description.toLowerCase().includes(term)
+          s.name.toLowerCase().includes(term) || s.category.toLowerCase().includes(term) || s.description.toLowerCase().includes(term)
         ).slice(0, 5);
 
         const gdResults = guides.filter(g =>
-          g.title.toLowerCase().includes(term) ||
-          g.excerpt.toLowerCase().includes(term)
+          g.title.toLowerCase().includes(term) || g.excerpt.toLowerCase().includes(term)
         ).slice(0, 3);
 
         let html = '';
         swResults.forEach(s => {
-          html += `<a href="/software/${s.id}" data-link class="search-result-item">${s.icon} ${s.name} — ${s.category}</a>`;
+          html += `<a href="${fullPath('/software/' + s.id)}" data-link class="search-result-item">${s.icon} ${s.name} — ${s.category}</a>`;
         });
         gdResults.forEach(g => {
-          html += `<a href="/guides/${g.id}" data-link class="search-result-item">📝 ${g.title} — ${g.category}</a>`;
+          html += `<a href="${fullPath('/guides/' + g.id)}" data-link class="search-result-item">📝 ${g.title} — ${g.category}</a>`;
         });
         if (!html) {
           html = '<div class="search-result-item">No results found. Try another keyword.</div>';
@@ -128,7 +158,7 @@ function initInteractions() {
   }
 }
 
-window.addEventListener('popstate', () => render(window.location.pathname));
+window.addEventListener('popstate', () => render());
 
 document.addEventListener('click', (e) => {
   const link = e.target.closest('a[data-link]');
@@ -138,4 +168,4 @@ document.addEventListener('click', (e) => {
   }
 });
 
-render(window.location.pathname);
+render();

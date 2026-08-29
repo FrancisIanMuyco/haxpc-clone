@@ -1,10 +1,11 @@
 import Header from '../components/Header.js';
 import Footer from '../components/Footer.js';
 import { software } from '../data/software.js';
+import { getAppPath } from '../config.js';
 
 export default function SoftwareDetail() {
-  const path = window.location.pathname;
-  const id = path.split('/')[2];
+  const appPath = getAppPath();
+  const id = appPath.split('/')[2];
   const app = software.find(s => s.id === id);
 
   if (!app) {

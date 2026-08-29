@@ -40,11 +40,29 @@
       color: #0EA5E9;
     }
   </style>
+  <script>
+    // GitHub Pages SPA redirect: capture the original path and redirect to index.html
+    (function () {
+      var repo = '/haxpc-clone';
+      var path = window.location.pathname;
+      // Strip the repo prefix if present
+      if (path.startsWith(repo)) {
+        path = path.substring(repo.length);
+      }
+      // Preserve query string and hash
+      var search = window.location.search;
+      var hash = window.location.hash;
+      var redirectUrl = repo + '/?path=' + encodeURIComponent(path);
+      if (search) redirectUrl += '&' + search.substring(1);
+      if (hash) redirectUrl += hash;
+      window.location.replace(redirectUrl);
+    })();
+  </script>
 </head>
 <body>
   <div class="container">
     <h1>404</h1>
-    <p>Page not found. The page you're looking for doesn't exist or has been moved.</p>
+    <p>Redirecting you to the right page...</p>
     <a href="/haxpc-clone/">Go back home</a>
   </div>
 </body>

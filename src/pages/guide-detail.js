@@ -1,10 +1,11 @@
 import Header from '../components/Header.js';
 import Footer from '../components/Footer.js';
 import { guides } from '../data/software.js';
+import { getAppPath } from '../config.js';
 
 export default function GuideDetail() {
-  const path = window.location.pathname;
-  const id = path.split('/')[2];
+  const appPath = getAppPath();
+  const id = appPath.split('/')[2];
   const guide = guides.find(g => g.id === id);
 
   if (!guide) {
