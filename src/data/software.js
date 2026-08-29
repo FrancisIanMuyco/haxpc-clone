@@ -238,6 +238,216 @@ export const software = [
       storage: '80 MB',
       gpu: 'None'
     }
+  },
+  {
+    id: 'visual-studio-code',
+    name: 'Visual Studio Code',
+    category: 'Developer Tools',
+    description: 'Lightweight but powerful source code editor.',
+    icon: '💻',
+    version: '1.92',
+    developer: 'Microsoft',
+    platform: 'Windows / macOS / Linux',
+    architecture: '64-bit',
+    license: 'Open Source',
+    updated: '2026-07-20',
+    size: '95 MB',
+    officialUrl: 'https://code.visualstudio.com/',
+    features: [
+      'IntelliSense code completion',
+      'Built-in Git',
+      'Extensions marketplace',
+      'Debugging',
+      'Multi-root workspaces',
+      'Terminal integration'
+    ],
+    screenshots: [],
+    requirements: {
+      os: 'Windows 10 64-bit or later',
+      ram: '1 GB',
+      storage: '500 MB',
+      gpu: 'None'
+    }
+  },
+  {
+    id: 'vlc-media-player',
+    name: 'VLC Media Player',
+    category: 'Multimedia',
+    description: 'Free and open source cross-platform multimedia player.',
+    icon: '▶️',
+    version: '3.0.21',
+    developer: 'VideoLAN',
+    platform: 'Windows / macOS / Linux',
+    architecture: '32/64-bit',
+    license: 'Open Source',
+    updated: '2026-07-19',
+    size: '48 MB',
+    officialUrl: 'https://www.videolan.org/vlc/',
+    features: [
+      'Plays any media format',
+      'No codec packs needed',
+      'Stream across network',
+      'Customizable skins',
+      'Subtitle support',
+      'Hardware acceleration'
+    ],
+    screenshots: [],
+    requirements: {
+      os: 'Windows 7 or later',
+      ram: '512 MB',
+      storage: '100 MB',
+      gpu: 'DirectX 9'
+    }
+  },
+  {
+    id: 'bitdefender-total-security',
+    name: 'Bitdefender Total Security',
+    category: 'Security',
+    description: 'Comprehensive antivirus and internet security suite.',
+    icon: '🛡️',
+    version: '2026',
+    developer: 'Bitdefender',
+    platform: 'Windows / macOS',
+    architecture: '64-bit',
+    license: 'Official',
+    updated: '2026-07-18',
+    size: '450 MB',
+    officialUrl: 'https://www.bitdefender.com/',
+    features: [
+      'Multi-layer ransomware protection',
+      'VPN included',
+      'Parental controls',
+      'Firewall',
+      'Webcam protection',
+      'Anti-phishing'
+    ],
+    screenshots: [],
+    requirements: {
+      os: 'Windows 10 64-bit or later',
+      ram: '2 GB',
+      storage: '6 GB',
+      gpu: 'DirectX 9'
+    }
+  },
+  {
+    id: 'notion',
+    name: 'Notion',
+    category: 'Productivity',
+    description: 'All-in-one workspace for notes, tasks, and collaboration.',
+    icon: '📝',
+    version: '2.4',
+    developer: 'Notion Labs',
+    platform: 'Windows / macOS',
+    architecture: '64-bit',
+    license: 'Official',
+    updated: '2026-07-17',
+    size: '180 MB',
+    officialUrl: 'https://www.notion.so/',
+    features: [
+      'Notes and documents',
+      'Databases and tables',
+      'Task management',
+      'Team collaboration',
+      'Templates',
+      'Integrations'
+    ],
+    screenshots: [],
+    requirements: {
+      os: 'Windows 10 64-bit or later',
+      ram: '2 GB',
+      storage: '400 MB',
+      gpu: 'None'
+    }
+  },
+  {
+    id: 'steam',
+    name: 'Steam',
+    category: 'Gaming',
+    description: 'The ultimate destination for playing, discussing, and creating games.',
+    icon: '🎮',
+    version: '2026',
+    developer: 'Valve',
+    platform: 'Windows / macOS / Linux',
+    architecture: '64-bit',
+    license: 'Official',
+    updated: '2026-07-16',
+    size: '1.5 MB',
+    officialUrl: 'https://store.steampowered.com/',
+    features: [
+      'Game library',
+      'Cloud saves',
+      'Community features',
+      'Broadcasting',
+      'Remote Play',
+      'Workshop support'
+    ],
+    screenshots: [],
+    requirements: {
+      os: 'Windows 10 64-bit or later',
+      ram: '4 GB',
+      storage: '1 GB',
+      gpu: 'DirectX 10'
+    }
+  },
+  {
+    id: 'firefox',
+    name: 'Mozilla Firefox',
+    category: 'Internet',
+    description: 'Fast, private, and safe web browser for everyone.',
+    icon: '🌐',
+    version: '129',
+    developer: 'Mozilla',
+    platform: 'Windows / macOS / Linux',
+    architecture: '32/64-bit',
+    license: 'Open Source',
+    updated: '2026-07-15',
+    size: '55 MB',
+    officialUrl: 'https://www.mozilla.org/firefox/',
+    features: [
+      'Enhanced Tracking Protection',
+      'Container tabs',
+      'Customizable UI',
+      'Extension support',
+      'Sync across devices',
+      'Built-in screenshot tool'
+    ],
+    screenshots: [],
+    requirements: {
+      os: 'Windows 10 or later',
+      ram: '512 MB',
+      storage: '200 MB',
+      gpu: 'None'
+    }
+  },
+  {
+    id: '7zip',
+    name: '7-Zip',
+    category: 'Utilities',
+    description: 'Free and open-source file archiver with high compression ratio.',
+    icon: '📦',
+    version: '24.07',
+    developer: 'Igor Pavlov',
+    platform: 'Windows',
+    architecture: '32/64-bit',
+    license: 'Open Source',
+    updated: '2026-07-14',
+    size: '1.5 MB',
+    officialUrl: 'https://www.7-zip.org/',
+    features: [
+      'High compression ratio',
+      '7z, ZIP, RAR support',
+      'AES-256 encryption',
+      'Shell integration',
+      'Command-line version',
+      'Free for any use'
+    ],
+    screenshots: [],
+    requirements: {
+      os: 'Windows 7 or later',
+      ram: '256 MB',
+      storage: '10 MB',
+      gpu: 'None'
+    }
   }
 ];
 

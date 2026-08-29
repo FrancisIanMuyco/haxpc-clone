@@ -6,6 +6,7 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
+    base: '/haxpc-clone/',
   },
   server: {
     host: '0.0.0.0',
